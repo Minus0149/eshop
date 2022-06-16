@@ -1,9 +1,20 @@
 import React from "react";
+import { Product, FooterBanner, HeroBanner } from "@components/index";
 
-const IndexPage = () => (
-  <div>
-    <p>hello</p>
-  </div>
-);
+const Home = () => {
+  return (
+    <>
+      <HeroBanner />
+      <div className="products-heading">
+        <h2>Best selling product</h2>
+        <p>Speakers of many variations</p>
+      </div>
+      <div className="products-container">
+        {["Product1", "Product2"].map((product) => product)}
+      </div>
+      <FooterBanner />
+    </>
+  );
+};
 
-export default IndexPage;
+export default Home;
