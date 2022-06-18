@@ -9,7 +9,7 @@ function HeroBanner() {
         <h3>MID TEXT</h3>
         <img src="" alt="Headphones" className="hero-banner-image" />
         <div>
-          <Link href={"/product/id"}>
+          <Link href="/product/ID">
             <button type="button"> BUTTON TEXT</button>
           </Link>
           <div className="desc">
