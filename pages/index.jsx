@@ -4,8 +4,7 @@ import { Product, FooterBanner, HeroBanner } from "../components/index";
 const Home = ({ products, bannerData }) => {
   return (
     <div>
-      <HeroBanner />
-      {console.log(bannerData)}
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       <div className="products-heading">
         <h2>Best selling product</h2>
         <p>Speakers of many variations</p>
