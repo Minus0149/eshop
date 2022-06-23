@@ -17,7 +17,7 @@ class MyDocument extends Document {
             name="description"
             content="Ecommerce Shop designed by minus "
           />
-          <meta name="keywords" content="HTML, CSS, JavaScript, Shp[], Minus" />
+          <meta name="keywords" content="HTML, CSS, JavaScript, Shop, Minus" />
           <meta name="author" content="Minus" />
         </Head>
         <Main />
