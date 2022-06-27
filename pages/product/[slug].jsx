@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 import {
   AiOutlineMinus,
   AiOutlinePlus,
@@ -8,12 +9,18 @@ import {
 import { Product } from "../../components";
 
 import { client, ulrFor } from "../../lib/client";
+import { useStateContext } from "../../hooks/StateContext";
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty, onAdd } = useStateContext();
   return (
     <div>
+      <Head>
+        <title>{name}</title>
+        <meta name="description" content={details} />
+      </Head>
       <div className="product-detail-container">
         <div>
           <div className="image-container">
@@ -52,19 +59,21 @@ const ProductDetails = ({ product, products }) => {
           <div className="quantity">
             <h3>Quantity</h3>
             <p className="quantity-desc">
-              <span className="minus" onClinck="">
+              <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num" onClinck="">
-                0
-              </span>
-              <span className="plus" onClinck="">
+              <span className="num">{qty}</span>
+              <span className="plus" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick="">
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => onAdd(product, qty)}
+            >
               Add to cart
             </button>
             <button type="button" className="buy-now" onClick="">
