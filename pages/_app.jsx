@@ -3,12 +3,18 @@ import React from "react";
 import { Layout } from "../components";
 import "../styles/index.css";
 
-function MyApp({ Component, pageProps }) {
+import { StateContext } from "../hooks/StateContext";
+import { Toaster } from "react-hot-toast";
+
+const MyApp = ({ Component, pageProps }) => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <StateContext>
+      <Layout>
+        <Toaster />
+        <Component {...pageProps} />
+      </Layout>
+    </StateContext>
   );
-}
+};
 
 export default MyApp;
